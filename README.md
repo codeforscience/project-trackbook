@@ -1,11 +1,12 @@
 # project-trackbook
-project trackbook
+
+**Description:** Open lab notebook giving researchers an interface to securely share and version control files in decentralized network.
+
+**eLife Sprint GOAL:** Create alpha MVP to demonstrate functionality. 
+
 
 ## Commands
 Command                | Description                                      |
 -----------------------|--------------------------------------------------|
-`$ npm start`          | Start the development server
-`$ npm test`           | Lint, validate deps & run tests
+`$ npm start`          | bundle assets
 `$ npm run build`      | Compile all files into `dist/`
-`$ npm run create`     | Generate a scaffold file
-`$ npm run inspect`    | Inspect the bundle's dependencies
