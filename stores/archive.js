@@ -67,6 +67,8 @@ function archive (state, emitter) {
       storage.setItem('archives', JSON.stringify(state.trackbook.archives))
       storage.setItem('active', info.url)
 
+      state.trackbook.loaded = true
+
       emitter.emit(state.events.ARCHIVE_READY)
       emitter.emit(state.events.PUSHSTATE, '/')
       emitter.emit(state.events.RENDER)
