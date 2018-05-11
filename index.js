@@ -11,7 +11,12 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(require('./stores/clicks'))
 app.use(function (state, emitter) {
   state.archive = new DatArchive(window.location.href)
-  console.log(state.archive)
+  // console.log(state.archive)
+  fetchArchive()
+  async function fetchArchive () {
+    var files = await state.archive.readdir('/')
+    console.log(files)
+  }
 })
 app.route('/', require('./views/main'))
 app.route('/start', require('./views/start'))
