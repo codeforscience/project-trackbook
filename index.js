@@ -3,12 +3,14 @@ var choo = require('choo')
 var md = require('marked')
 
 css('tachyons')
+css('./assets/custom.css')
 
 var app = choo()
 if (process.env.NODE_ENV !== 'production') {
   app.use(require('choo-devtools')())
 }
 
+app.use(require('./stores/files'))
 app.use(require('./plugins/scroll'))
 
 app.use(require('./stores/start-page'))
