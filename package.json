@@ -4,17 +4,14 @@
   "private": true,
   "scripts": {
     "build": "bankai build index.js",
-    "create": "choo-scaffold",
-    "inspect": "bankai inspect index.js",
-    "start": "bankai start index.js",
-    "test": "standard && npm run test-deps",
-    "test-deps": "dependency-check . && dependency-check . --extra --no-dev -i tachyons"
+    "start": "watchify index.js -o bundles/bundle.js -t sheetify -p [ css-extract -o bundles/bundle.css ] index.js"
   },
   "dependencies": {
     "choo": "^6.11.0-preview1",
     "choo-service-worker": "^2.4.0",
     "sheetify": "^7.3.2",
-    "tachyons": "^4.9.1"
+    "tachyons": "^4.9.1",
+    "watchify": "^3.11.0"
   },
   "devDependencies": {
     "bankai": "^9.12.0",
