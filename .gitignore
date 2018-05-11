@@ -7,4 +7,5 @@ tmp/
 npm-debug.log*
 .DS_Store
 
-bundles/
+bundles/*.css
+bundles/*.js
