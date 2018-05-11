@@ -7,7 +7,7 @@ module.exports = view
 
 function view (state, emit) {
   // loading
-  if (!state.archive.loaded) return renderLoading(state, emit)
+  // if (!state.archive.loaded) return renderLoading(state, emit)
 
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
