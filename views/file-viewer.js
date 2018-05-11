@@ -1,5 +1,7 @@
 var html = require('choo/html')
 var raw = require('choo/html/raw')
+var pretty = require('prettier-bytes')
+var relative = require('relative-date')
 
 var TITLE = 'project trackbook'
 
@@ -12,9 +14,9 @@ function view (state, emit) {
     case state.statuses.FILES_READY:
       const files = state.files.map(stats =>
         `<tr>
-          <td>${stats.name}</td>
-          <td>${stats.size}</td>
-          <td>${stats.mtime}</td>
+          <td class=${stats.isDirectory ? "folder": "file"}> ${stats.name}</td>
+          <td>${pretty(stats.size)}</td>
+          <td>${relative(stats.mtime)}</td>
         </tr>`
       ).join('')
 
@@ -29,7 +31,7 @@ function view (state, emit) {
         </table>
       `
       return html`
-        <body>
+        <body class="code lh-copy">
           <main>
             ${raw(table)}
           </main>
