@@ -4,6 +4,10 @@
 
 **eLife Sprint GOAL:** Create alpha MVP to demonstrate functionality.
 
+## Usage
+
+1. Download [Beaker Browser](https://beakerbrowser.com)
+2. Visit [Project Trackbook](dat://00c40010e2fb460e1121feeb39c22779b87b3fe9649b1c0cb1c8a28edfe63874/) via Dat (`dat://00c40010e2fb460e1121feeb39c22779b87b3fe9649b1c0cb1c8a28edfe63874/`)
 
 ## Commands
 
