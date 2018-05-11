@@ -9,10 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(require('./stores/clicks'))
-app.use(function (state, emitter) {
-  state.archive = new DatArchive(window.location.href)
-  console.log(state.archive)
-})
+app.use(require('./stores/files'))
 app.route('/', require('./views/main'))
 app.route('/start', require('./views/start'))
 app.route('/fileview', require('./views/file-viewer'))

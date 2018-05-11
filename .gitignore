@@ -1,4 +1,5 @@
 node_modules/
+.dat
 .nyc_output/
 coverage/
 dist/
