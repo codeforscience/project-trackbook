@@ -3,13 +3,10 @@ var raw = require('choo/html/raw')
 var pretty = require('prettier-bytes')
 var relative = require('relative-date')
 
-var TITLE = 'project trackbook'
-
 module.exports = view
 
 function view (state, emit) {
   // if (!state.loaded) return renderLoading(state, emit)
-
   switch (state.status) {
     case state.statuses.FILES_READY:
       const files = state.files.map(stats =>
@@ -31,11 +28,9 @@ function view (state, emit) {
         </table>
       `
       return html`
-        <body class="code lh-copy">
-          <main>
+        <section>
             ${raw(table)}
-          </main>
-        </body>
+        </section>
       `
     default:
       emit(state.events.FILES_REQUESTED)

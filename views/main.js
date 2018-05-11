@@ -1,6 +1,7 @@
 var html = require('choo/html')
 var renderLoading = require('../components/loading')
 var infoView = require('../components/info-view')
+var fileView = require('../views/file-viewer')
 
 var TITLE = 'project trackbook'
 
@@ -20,7 +21,7 @@ function view (state, emit) {
       <main class="pa3 cf center">
         ${infoView(state, emit)}
         <section class="fl mw6 w-50-ns pa3">
-        (file browser)
+        ${fileView(state, emit)}
         </section>
       </main>
     </body>
