@@ -15,17 +15,20 @@ function store (state, emitter) {
   state.archive = new DatArchive(window.location.href)
 
 
-    emitter.on(state.events.FILES_LOADED, (files) => {
-      debugger
-      state.files = files
-      state.status = state.statuses.FILES_READY
-      emitter.emit(state.events.RENDER)
-    })
+  emitter.on(state.events.FILES_LOADED, (files) => {
+    state.files = files
+    state.status = state.statuses.FILES_READY
+    emitter.emit(state.events.RENDER)
+  })
 
-    emitter.on(state.events.FILES_REQUESTED, (dir) => {
-      debugger
-      state.archive.readdir(dir).then(files => {
+  emitter.on(state.events.FILES_REQUESTED, (dir = './') => {
+    state.archive.readdir(dir).then(files => {
+      return Promise.all(files.map(fileName => {
+        return state.archive.stat(fileName).then(result => ({...result, name: fileName}))
+      }))
+    })
+      .then(files => {
         emitter.emit(state.events.FILES_LOADED, files)
       })
-    })
+  })
 }

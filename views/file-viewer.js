@@ -10,15 +10,30 @@ function view (state, emit) {
 
   switch (state.status) {
     case state.statuses.FILES_READY:
-      const files = state.files.map(filename => `<li>${filename}</li>`).join('')
+      const files = state.files.map(stats =>
+        `<tr>
+          <td>${stats.name}</td>
+          <td>${stats.size}</td>
+          <td>${stats.mtime}</td>
+        </tr>`
+      ).join('')
+
+      const table = `
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Time</th>
+          </tr>
+          ${files}
+        </table>
+      `
       return html`
-      <body>
-        <main>
-          <ul>
-            ${raw(files)}
-          </ul>
-        </main>
-      </body>
+        <body>
+          <main>
+            ${raw(table)}
+          </main>
+        </body>
       `
     default:
       emit(state.events.FILES_REQUESTED)
