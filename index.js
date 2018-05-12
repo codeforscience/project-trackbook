@@ -12,7 +12,7 @@ app.use(require('./plugins/scroll'))
 
 app.use(require('./stores/start-page'))
 app.use(require('./stores/archive'))
-app.use(require('./stores/files'))
+app.use(require('./stores/project-files'))
 app.use(require('./stores/project-info'))
 
 app.route('/', require('./views/main'))
