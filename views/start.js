@@ -10,12 +10,13 @@ function view (state, emit) {
   if (state.title !== TITLE) emit(state.events.DOMTITLECHANGE, TITLE)
 
   return html`
-    <body class="code lh-copy">
+    <body class="lh-copy bg-dark-gray white h-100">
       <main class="pa3 cf center">
         <section class="vh-75 dt w-100">
           <div class="dtc v-mid tc ph3 ph4-l">
-            <h1 class="f-headline">Project Trackbook</h1>
-            <h3 class="f3 tracked ttu">Instructions</h3>
+            <h1 class="f-headline small-caps mb0">Project TrackBook</h1>
+            <h5 class="f4 i mt0 mb6">A lab notebook with secure file sharing & version control!</h5>
+            <h3 class="f3 tracked ttu moon-gray">Instructions</h3>
             ${state.startPage.showModal ? modal.render({
               content: html`
                 <div class="bg-white w-70 center">
@@ -27,15 +28,15 @@ function view (state, emit) {
             <a href=#
               onclick=${toggleModal}
               class="
-                f3 no-underline black
-                bg-animate hover-bg-black hover-white
-                pa3 ba border-box">1. Import Directory to Beaker</a>
+                f3 no-underline moon-gray
+                bg-animate hover-bg-dark-green hover-white
+                pa3 ba b--light-green border-box">1. Import Directory to Beaker</a>
             <a href=#
               onclick=${handleAdd}
               class="
-                f3 no-underline black
-                bg-animate hover-bg-black hover-white
-                pa3 ba border-box">2. Add Project to TrackBook!</a>
+                f3 no-underline moon-gray
+                bg-animate hover-bg-dark-green hover-white
+                pa3 ba b--light-green border-box">2. Add Project to TrackBook!</a>
           </div>
         </section>
       </main>

@@ -1,0 +1,64 @@
+
+body {
+  font-family: 'Plex', sans-serif;
+}
+
+/**
+ * loading
+ */
+
+.loading {
+  --radius: 2rem;
+  margin: calc(var(--radius) * -1);
+  height: calc(var(--radius) * 2);
+  width: calc(var(--radius) * 2);
+  border-radius: 50rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border: 3px solid #fff;
+  border-top: 3px solid #000;
+  border-left: 3px solid #000;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
+/**
+ * typography
+ */
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-Regular.woff2') format('woff2'),
+       url('/assets/fonts/IBMPlexSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-LightItalic.woff2') format('woff2'),
+    url('/assets/fonts/IBMPlexSans-LightItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-Medium.woff2') format('woff2'),
+    url('/assets/fonts/IBMPlexSans-Medium.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-MediumItalic.woff2') format('woff2'),
+    url('/assets/fonts/IBMPlexSans-MediumItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}

@@ -30,7 +30,7 @@ function archive (state, emitter) {
     state.trackbook.active = window.localStorage.getItem('active') || ''
 
     if (state.trackbook.active) {
-      emitter.emit(state.events.ARCHIVE_LOAD, { url: state.trackbook.active })
+      emitter.emit(state.events.ARCHIVE_LOAD, { url: state.trackbook.active, redirect: false })
     } else {
       state.trackbook.loaded = true
       emitter.emit(state.events.PUSHSTATE, '/start')
@@ -45,7 +45,7 @@ function archive (state, emitter) {
         buttonLabel: 'Add this project',
         filters: { isOwner: true }
       })
-      emitter.emit(state.events.ARCHIVE_LOAD, { url: archive.url })
+      emitter.emit(state.events.ARCHIVE_LOAD, { url: archive.url, redirect: true })
     } catch (err) {
       state.trackbook.error = err.message
       emitter.emit(state.events.RENDER)
@@ -56,6 +56,10 @@ function archive (state, emitter) {
 
   async function handleLoad (props) {
     try {
+      if (props.url === state.trackbook.active && state.archive) {
+        // TODO, render existing
+      }
+
       var archive = await new DatArchive(props.url)
       var info = await archive.getInfo()
 
@@ -70,8 +74,10 @@ function archive (state, emitter) {
 
 
       emitter.emit(state.events.ARCHIVE_READY)
-      emitter.emit(state.events.PUSHSTATE, '/')
-      emitter.emit(state.events.RENDER)
+      if (props.redirect) {
+        emitter.emit(state.events.PUSHSTATE, `/project?url=${info.url}`)
+        emitter.emit(state.events.RENDER)
+      }
     } catch (err) {
       var archiveInfo = state.trackbook.archives[props.url]
 
