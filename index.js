@@ -1,9 +1,7 @@
-var css = require('sheetify')
 var choo = require('choo')
 var md = require('marked')
 
-css('tachyons')
-css('./assets/custom.css')
+require('./design')
 
 var app = choo()
 if (process.env.NODE_ENV !== 'production') {

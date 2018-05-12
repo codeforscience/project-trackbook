@@ -5,7 +5,8 @@ module.exports = renderLoading
 function renderLoading (state, emit) {
   return html`
     <body>
-      <div class="loading">LOADING</div>
+      <div class="loading">
+      </div>
     </body>
   `
 }
