@@ -1,3 +1,43 @@
 .file {
   color: #33AAEE;
 }
+
+body {
+  font-family: 'Plex', sans-serif;
+}
+
+/**
+ * typography
+ */
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-Regular.woff2') format('woff2'),
+       url('/assets/fonts/IBMPlexSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-LightItalic.woff2') format('woff2'),
+    url('/assets/fonts/IBMPlexSans-LightItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-Medium.woff2') format('woff2'),
+    url('/assets/fonts/IBMPlexSans-Medium.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/assets/fonts/IBMPlexSans-MediumItalic.woff2') format('woff2'),
+    url('/assets/fonts/IBMPlexSans-MediumItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}

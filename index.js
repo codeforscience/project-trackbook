@@ -50,7 +50,8 @@ app.use(function (state, emitter) {
 
 app.route('/', require('./views/main'))
 app.route('/start', require('./views/start'))
-app.route('/fileview', require('./views/file-viewer'))
+app.route('/project', require('./views/project'))
+app.route('/project/*', require('./views/project'))
 app.route('/*', require('./views/404'))
 
 // start
