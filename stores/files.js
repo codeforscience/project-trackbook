@@ -20,16 +20,16 @@ function store (state, emitter) {
     })
 
     emitter.on(state.events.ARCHIVE_READY, archive => {
-      console.log('here')
       emitter.emit(state.events.FILES_REQUESTED)
     })
 
     emitter.on(state.events.FILES_REQUESTED, (dir = '/') => {
-      console.log('file req', state.archive, dir)
       state.archive.readdir(dir).then(files => {
         return Promise.all(files.map(fileName => {
-          console.log('filename', fileName)
-          return state.archive.stat(fileName).then(result => ({...result, name: fileName}))
+          return state.archive.stat(fileName).then(result => {
+            result.name = fileName
+            return result
+          })
         }))
       })
         .then(files => {
