@@ -1,9 +1,15 @@
+var md = require('marked')
+
 module.exports = store
 
 function store (state, emitter) {
   state.paper = {}
+  state.history = []
+
+  state.events.ARCHIVE_HISTORY = 'archive:history'
 
   emitter.on(state.events.ARCHIVE_READY, fetchPaper)
+  emitter.on(state.events.ARCHIVE_HISTORY, fetchHistory)
 
   async function fetchPaper () {
     var introductionFile = await fetchFile('/paper/introduction.md')
@@ -18,6 +24,12 @@ function store (state, emitter) {
     var discussionFile = await fetchFile('/paper/discussion.md')
     state.paper.discussion = md(discussionFile)
 
+    emitter.emit(state.events.RENDER)
+  }
+
+  async function fetchHistory () {
+    if (!state.archive) return
+    state.history = await state.archive.history({reverse: true})
     emitter.emit(state.events.RENDER)
   }
 

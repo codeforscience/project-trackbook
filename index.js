@@ -1,5 +1,4 @@
 var choo = require('choo')
-var md = require('marked')
 
 require('./design')
 
@@ -10,6 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(require('./plugins/scroll'))
 
+app.use(require('./stores/ui'))
 app.use(require('./stores/start-page'))
 app.use(require('./stores/archive'))
 app.use(require('./stores/project-files'))
