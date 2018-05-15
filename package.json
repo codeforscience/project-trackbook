@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "test": "standard",
     "build": "browserify index.js -o bundles/bundle.js -t sheetify -p [ css-extract -o bundles/bundle.css ] index.js",
     "start": "watchify index.js -o bundles/bundle.js -t sheetify -p [ css-extract -o bundles/bundle.css ] index.js"
   },

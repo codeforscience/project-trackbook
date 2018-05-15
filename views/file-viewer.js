@@ -9,7 +9,7 @@ function view (state, emit) {
   // if (!state.loaded) return renderLoading(state, emit)
   switch (state.status) {
     case state.statuses.FILES_READY:
-      return fileView.render({ files: state.files, handleRowClick: onclick})
+      return fileView.render({ files: state.files, handleRowClick: onclick })
     default:
       return html`
         <p>Loading...</p>

@@ -1,6 +1,5 @@
 var Nanocomponent = require('nanocomponent')
 var html = require('choo/html')
-var raw = require('choo/html/raw')
 var pretty = require('prettier-bytes')
 var relative = require('relative-date')
 
@@ -44,7 +43,7 @@ class FileTree extends Nanocomponent {
           onclick=${handleRowClick}
           class="
             dim stripe-dark
-            ${stats.isDirectory() ? 'folder': 'file'}">
+            ${stats.isDirectory() ? 'folder' : 'file'}">
           <td> ${stats.name}</td>
           <td>${pretty(stats.size)}</td>
           <td>${relative(stats.mtime)}</td>

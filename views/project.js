@@ -59,7 +59,7 @@ function view (state, emit) {
   `
 
   function buttons () {
-    var btnClass=`ba b--dark-green
+    var btnClass = `ba b--dark-green
                   tc bg-white
                   black bg-animate hover-bg-dark-green hover-white
                   border-box pointer`

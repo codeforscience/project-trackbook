@@ -8,8 +8,8 @@ function historyView (state, emit) {
     <div>
       <ul class="list">
       ${state.history.map(function (item) {
-        return html`<li>${item.type.toUpperCase()}: ${item.path}</li>`
-      })}
+    return html`<li>${item.type.toUpperCase()}: ${item.path}</li>`
+  })}
       </ul>
     </div>
   `

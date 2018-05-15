@@ -1,8 +1,6 @@
 var html = require('choo/html')
 var objectKeys = require('object-keys')
 var renderLoading = require('../components/loading')
-var infoView = require('../components/info-view')
-var fileView = require('../views/file-viewer')
 
 var TITLE = 'project trackbook'
 
@@ -23,15 +21,15 @@ function view (state, emit) {
       </header>
       <main class="pa3 pa5-ns flex justify-around flex-wrap">
         ${objectKeys(state.trackbook.archives).map(function (url) {
-          return projectLink({
-            url: url,
-            archive: state.trackbook.archives[url],
-            handleLoad: handleLoad
-          })
-        })}
+    return projectLink({
+      url: url,
+      archive: state.trackbook.archives[url],
+      handleLoad: handleLoad
+    })
+  })}
         ${projectLink({
-          handleLoad: handleAdd
-        })}
+    handleLoad: handleAdd
+  })}
       </main>
     </body>
   `
@@ -64,7 +62,7 @@ function view (state, emit) {
                 tc fr bg-white
                 black bg-animate hover-bg-dark-green hover-white
                 pv1 ph3 border-box">
-                ${newProject ? '+ Add New' : 'Open Project' }
+                ${newProject ? '+ Add New' : 'Open Project'}
             </a>
           </div>
         </div>

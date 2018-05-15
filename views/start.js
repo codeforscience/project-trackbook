@@ -18,13 +18,13 @@ function view (state, emit) {
             <h5 class="f4 i mt0 mb6">A lab notebook with secure file sharing & version control!</h5>
             <h3 class="f3 tracked ttu moon-gray">Instructions</h3>
             ${state.startPage.showModal ? modal.render({
-              content: html`
+    content: html`
                 <div class="bg-white w-70 center">
                   <img src="/assets/import.gif" class="w-100">
                 </div>
               `,
-              handleContainerClick: toggleModal
-            }) : ''}
+    handleContainerClick: toggleModal
+  }) : ''}
             <a href=#
               onclick=${toggleModal}
               class="

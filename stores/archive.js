@@ -1,3 +1,5 @@
+/* global DatArchive, alert */
+
 module.exports = archive
 
 function archive (state, emitter) {
@@ -21,7 +23,6 @@ function archive (state, emitter) {
   emitter.on(state.events.DOMCONTENTLOADED, handleSetup)
   emitter.on(state.events.ARCHIVE_LOAD, handleLoad)
   emitter.on(state.events.ARCHIVE_ADD, handleAdd)
-
 
   async function handleSetup () {
     var archives = window.localStorage.getItem('archives')
@@ -53,7 +54,6 @@ function archive (state, emitter) {
     }
   }
 
-
   async function handleLoad (props) {
     try {
       if (props.url === state.trackbook.active && state.archive) {
@@ -71,7 +71,6 @@ function archive (state, emitter) {
       state.trackbook.loaded = true
       storage.setItem('archives', JSON.stringify(state.trackbook.archives))
       storage.setItem('active', info.url)
-
 
       emitter.emit(state.events.ARCHIVE_READY)
       if (props.redirect) {
