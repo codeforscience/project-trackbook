@@ -1,39 +1,40 @@
-# project-trackbook
+# Project Trackbook
 
-**Description:** Open lab notebook giving researchers an interface to securely share and version control files in decentralized network.
+`dat://trackbook.hashbase.io`
 
-**eLife Sprint GOAL:** Create alpha MVP to demonstrate functionality.
+Open lab notebook giving researchers an interface to securely share and version control files in decentralized network.
 
 ## Usage
 
+Use TrackBook by visiting it with the Beaker Browser.
+
 1. Download [Beaker Browser](https://beakerbrowser.com)
-2. Visit [Project Trackbook](dat://00c40010e2fb460e1121feeb39c22779b87b3fe9649b1c0cb1c8a28edfe63874/) via Dat (`dat://00c40010e2fb460e1121feeb39c22779b87b3fe9649b1c0cb1c8a28edfe63874/`)
+2. Visit [Project Trackbook](dat://trackbook.hashbase.io/) via Dat (`dat://trackbook.hashbase.io/`)
 
-## Commands
+## Docs
 
-1. Clone the directory to your computer:
+TODO!
 
-```bash
-git clone https://github.com/dat-land/project-trackbook.git
-```
+For the eLife sprint, we made a prototype video and some other content. You can view those on Dat: `dat://docs-trackbook.hashbase.io/`
 
-2. Navigate into your newly cloned directory:
+## Contributing
 
-```bash
-cd project-trackbook
-```
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-3. Get `npm` to install all the required dependencies and then start the trackbook backend:
+See [Contributing](CONTRIBUTING) for details.
 
-```bash
-npm install
-npm start
-```
+## Thanks
 
-4. Launch [Beaker Browser](https://beakerbrowser.com/). Make sure you have the latest version installed: [install/update Beaker](https://beakerbrowser.com/docs/install/) if needed!
-5. Launch Beaker, navigate to `Menu` &rarr; `Create New` &rarr; `From Folder` and select the folder where you cloned `project-trackbook`.
-![Opening your trackbook in Beaker](assets/beaker-instructions.png)
-6. Click on `Local preview` above the file browser to see your workspace.
-![Local preview](assets/local-preview.png)
+This project was initiated at the 2018 eLife Sprint by
 
-**More instructions coming soon.**
+* Bruno Vieira
+* Danielle Robinson
+* Joe Hand
+* Kirstie Whitaker
+* Marek Kultys
+* Ruben Paz
+* Vilim Štih
+
+## License 
+
+[MIT](LICENSE.md)
