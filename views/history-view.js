@@ -8,7 +8,9 @@ function historyView (state, emit) {
     <div>
       <ul class="list">
       ${state.history.map(function (item) {
-        return html`<li>${item.type.toUpperCase()}: ${item.path}</li>`
+        var fileInfo = state.fileHistory[item.path]
+        console.log(item, )
+        return html`<li>${item.path}, Version ${fileInfo.versions} </li>`
       })}
       </ul>
     </div>

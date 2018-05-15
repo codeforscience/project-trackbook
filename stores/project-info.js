@@ -5,6 +5,7 @@ module.exports = store
 function store (state, emitter) {
   state.paper = {}
   state.history = []
+  state.fileHistory = {}
 
   state.events.ARCHIVE_HISTORY = 'archive:history'
 
@@ -30,6 +31,26 @@ function store (state, emitter) {
   async function fetchHistory () {
     if (!state.archive) return
     state.history = await state.archive.history({reverse: true})
+    state.history = await Promise.all(state.history.map(async (entry) => {
+      try {
+        entry.stat = await state.archive.stat(entry.path)
+      } catch (e) {
+        entry.deleted = true
+      }
+      return entry
+    }))
+    state.history.map((entry) => {
+      if (!state.fileHistory[entry.path]) {
+        if (entry.type === 'del') {
+          state.fileHistory[entry.path] = {versions: 0, deleted: true}
+          return
+        }
+        state.fileHistory[entry.path] = {versions: 1}
+        return
+      }
+      state.fileHistory[entry.path].versions++
+    })
+
     emitter.emit(state.events.RENDER)
   }
 
